@@ -14,22 +14,12 @@ NOT_FOUND_CODE=404
 class TestPets(unittest.TestCase):
 
 
-    # # create a new user - проблема с передачей айдишника, не могу понять как правильно подставить данные в id
-    # def test1_create_user(self):
-    #     user_id=random_user_id
-    #     print(user_login)
-    #     print(user_email)
-    #     body='{"id": user_id, "username": "user_login","firstName":"Test", "lastName": "User","email":"user_email","password": "1qaz2wsx","phone": "1234567","userStatus": 0}'
-    #     headers = {'accept': 'application/json','Content-Type': 'application/json'}
-    #     r=requests.post(url+"/user", headers=headers, data=body)
-    #     self.assertEqual(r.status_code, SUCCESS_CODE)
-
- # create a new user
+# create a new user - проблема с передачей айдишника, не могу понять как правильно подставить данные в id
     def test1_create_user(self):
         user_id=random_user_id
         print(user_login)
         print(user_email)
-        body='{"id": 1, "username": "user_login","firstName":"Test", "lastName": "User","email":"user_email","password": "1qaz2wsx","phone": "1234567","userStatus": 0}'
+        body='{"id": '+str(user_id)', "username": "user_login","firstName":"Test", "lastName": "User","email":"user_email","password": "1qaz2wsx","phone": "1234567","userStatus": 0}'
         headers = {'accept': 'application/json','Content-Type': 'application/json'}
         r=requests.post(url+"/user", headers=headers, data=body)
         self.assertEqual(r.status_code, SUCCESS_CODE)
